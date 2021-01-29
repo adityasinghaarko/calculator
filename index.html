@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <form name="form">
+            <div class="display">
+                <input id="display" type="text" placeholder="0" name="displayResult" />
+            </div>
+            <div class="buttons">
+                <div class="row">
+                    <input onclick="buttonHandler('num7')" id="num7" type="button" name="b7" value="7">
+                    <input onclick="buttonHandler('num8')" id="num8" type="button" name="b8" value="8">
+                    <input onclick="buttonHandler('num9')" id="num9" type="button" name="b9" value="9">
+                    <input onclick="buttonHandler('operator+')" id="operator+" type="button" name="addb" value="+">
+                </div>
+
+                <div class="row">
+                    <input onclick="buttonHandler('num4')" id="num4" type="button" name="b4" value="4">
+                    <input onclick="buttonHandler('num5')" id="num5" type="button" name="b5" value="5">
+                    <input onclick="buttonHandler('num6')" id="num6" type="button" name="b6" value="6">
+                    <input onclick="buttonHandler('operator-')" id="operator-" type="button" name="subb" value="-">
+                </div>
+
+                <div class="row">
+                    <input onclick="buttonHandler('num1')" id="num1" type="button" name="b1" value="1">
+                    <input onclick="buttonHandler('num2')" id="num2" type="button" name="b2" value="2">
+                    <input onclick="buttonHandler('num3')" id="num3" type="button" name="b3" value="3">
+                    <input onclick="buttonHandler('operator*')" id="operator*" type="button" name="mulb" value="*">
+                </div>
+
+                <div class="row">
+                    <input onclick="buttonHandler('num0')" id="num0" type="button" name="b0" value="0">
+                    <input onclick="clearHandler()" id="clear" type="button" name="potb" value="C">
+                    <input onclick="buttonHandler('operator/')" id="operator/" type="button" name="divb" value="/">
+                    <input  id="result" type="button" class="red" value="=">
+                </div>
+            </div>
+
+        </form>
+    </div>
+    <script>
+        function buttonHandler(id){
+            var buttonValue = document.getElementById(id);
+            var buttonNum = buttonValue.value;
+            var display = document.getElementById('display');
+            display.value =display.value + buttonNum;
+        }
+        document.getElementById('result').addEventListener('click', function(){
+            var task = document.getElementById('display');
+            var taskValue = (task.value);
+            var result = eval(taskValue);
+            task.value = result;
+            console.log(result);
+
+        })
+        function clearHandler(){
+            var display = document.getElementById('display');
+            display.value = '';
+        }
+    </script>
+</body>
+
+</html>
